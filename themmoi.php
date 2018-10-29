@@ -5,6 +5,7 @@
 </head>
 <body>
 <div class="container bg-contain">
+    <a href="phone.php">
         <h2>Trang Chủ</h2>
     </a>
     <h1>Thêm sản phẩm</h1>

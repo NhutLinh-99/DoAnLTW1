@@ -1,8 +1,10 @@
 <?php 
     include './users.php';
-    
+    session_start();
+    if(empty($_SESSION['ab'])){
+    $_SESSION['ab']='a';
+}
     $obj_users = new users();
-
     $id = '';
     if(isset($_GET['id'])){
         $id=$_GET['id'];
@@ -11,26 +13,17 @@
     $keyword = '';
     if(isset($_GET['keyword'])) {
         $keyword = $_GET['keyword'];
+        
     }
-    $users = $obj_users->getUsers($keyword); 
+    $users = $obj_users->getUsers($keyword);
+    $user = 1;
 ?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>DoAnLTW1</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="public/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <link href="public/css/styles.css" rel="stylesheet" type="text/css"/>
-        <script src="public/js/jquery-2.1.4.min.js" type="text/javascript"></script>
-        <script src="public/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="public/js/scripts.js" type="text/javascript"></script>
-    </head>
+<?php include './head.php'; ?>
 <body>
     <div class="container">
         <ul class="menu">
             <li>
-                <a href="phone.php">Trang chủ</a>
+                <a href="index.php">Trang chủ</a>
             </li>
             <li>
                 <a href="phone.php">Điên thoại</a>
@@ -42,8 +35,12 @@
                 <a href="access.php">Phụ Kiện</a>
             </li>
             <li>
+                
+                <?php if(!empty($_SESSION['x']) == 1): ?>
+                <a href="logout.php">LogOut</a>
+                <?php else :?>
                 <a href="login.php">LogIn</a>
-                <a href="#">LogOut</a>
+                <?php  endif ;?>
             </li>
         </ul>
     </div>
@@ -55,11 +52,10 @@
                     <input type="submit" value="Tim kiem">
                 </form>
             </div>
-            <a href="registration.php">registration</a>
             <div class="row">
                 <div class="col-md-3">
                     <div class="them">
-                        <?php if ($user=1):  ?>
+                        <?php if (($_SESSION['ab']) == 'admin') :?>
                         <a href='themmoi.php?id=<?php echo $user['id'] ?>' style="text-decoration: none; ">Them Moi</a>
                         <?php endif; ?>
                      </div>
@@ -71,8 +67,10 @@
             <div class="row show-sp">
                 <?php foreach ($users as $user):  ?>
                 <div class="col-md-4">
+                    <?php if (($_SESSION['ab']) == 'admin') :?>
                     <a href='phone.php?id=<?php echo $user['id'] ?>' style="text-decoration: none; ">Xoa</a>
                     <a href='capnhap.php?id=<?php echo $user['id'] ?>' style="text-decoration: none; ">Cap Nhap</a>
+                    <?php endif; ?>
                     <div class="card">
                         <img src="public/images/<?php echo $user['hinh']?>.jpg" alt="" class="img-responsive"/>
                         <div>                          

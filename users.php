@@ -13,7 +13,7 @@ class users extends db{
         $users = $this->select($sql);
         return $users;
     }
-    
+        
     public function deleteUser($id) {
         $sql = 'DELETE FROM users WHERE id = '.$id;
         $this->query($sql);
@@ -37,6 +37,12 @@ class users extends db{
                 '`hinh` = "'.$data['hinh'].'", '.
                 '`gia` = "'.$data['gia'].'" '.
                 'WHERE id='.$data['id']; 
+        $this->query($sql);
+    }
+            //them user
+    public function insertUsers($add){
+            $sql = 'INSERT INTO `accounts` (`id`,`username`, `password`)'
+                  .'VALUES ("'.NULL.'","'.$add['username'].'","'.$add['password'].'")';
         $this->query($sql);
     }
   
