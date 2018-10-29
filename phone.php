@@ -19,19 +19,24 @@
     $user = 1;
 ?>
 <?php include './head.php'; ?>
+<script src="public/js/giohang.js" type="text/javascript"></script>
 <body>
     <div class="container">
         <ul class="menu">
             <li>
+                <i class="fa fa-home" aria-hidden="true"></i>
                 <a href="index.php">Trang chủ</a>
             </li>
             <li>
+				<i class="fa fa-star" aria-hidden="true"></i>
                 <a href="phone.php">Điên thoại</a>
             </li>
             <li>
+                <i class="fa fa-star" aria-hidden="true"></i>
                 <a href="computer.php">LapTop</a>
             </li>
             <li>
+                <i class="fa fa-star" aria-hidden="true"></i>
                 <a href="access.php">Phụ Kiện</a>
             </li>
             <li>
@@ -41,6 +46,12 @@
                 <?php else :?>
                 <a href="login.php">LogIn</a>
                 <?php  endif ;?>
+            </li>
+            <li>
+                <div class="logo">
+                    (<span class="quantity">0</span>)
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                </div>
             </li>
         </ul>
     </div>
@@ -76,6 +87,7 @@
                         <div>                          
                             <h2>Dien Thoai : <?php echo $user['ten'] ?></h2>
                             <h3>Gia : <?php echo $user['gia'] ?></h3>
+							 <a href="#" class="mua">Mua</a>
                         </div>
                     </div>
                 </div>
