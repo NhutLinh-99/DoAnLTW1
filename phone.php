@@ -28,7 +28,7 @@
                 <a href="index.php">Trang chủ</a>
             </li>
             <li>
-				<i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star" aria-hidden="true"></i>
                 <a href="phone.php">Điên thoại</a>
             </li>
             <li>
@@ -40,7 +40,7 @@
                 <a href="access.php">Phụ Kiện</a>
             </li>
             <li>
-                
+                <i class="fa fa-star" aria-hidden="true"></i>
                 <?php if(!empty($_SESSION['x']) == 1): ?>
                 <a href="logout.php">LogOut</a>
                 <?php else :?>
@@ -87,7 +87,7 @@
                         <div>                          
                             <h2>Dien Thoai : <?php echo $user['ten'] ?></h2>
                             <h3>Gia : <?php echo $user['gia'] ?></h3>
-							 <a href="#" class="mua">Mua</a>
+                            <a href="#" class="mua">Mua</a>
                         </div>
                     </div>
                 </div>

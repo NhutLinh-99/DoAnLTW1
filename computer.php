@@ -23,27 +23,39 @@
     $compu = 1;
 ?>
 <?php include './head.php'; ?>
+<script src="public/js/giohang.js" type="text/javascript"></script>
 <body>
        <div class="container">
         <ul class="menu">
             <li>
+                <i class="fa fa-home" aria-hidden="true"></i>
                 <a href="index.php">Trang chủ</a>
             </li>
             <li>
+                <i class="fa fa-star" aria-hidden="true"></i>
                 <a href="phone.php">Điên thoại</a>
             </li>
             <li>
+                <i class="fa fa-star" aria-hidden="true"></i>
                 <a href="computer.php">LapTop</a>
             </li>
             <li>
+                <i class="fa fa-star" aria-hidden="true"></i>
                 <a href="access.php">Phụ Kiện</a>
             </li>
             <li>
+                <i class="fa fa-star" aria-hidden="true"></i>
                 <?php if(!empty($_SESSION['x']) == 1): ?>
                 <a href="logout.php">LogOut</a>
                 <?php else :?>
                 <a href="login.php">LogIn</a>
                 <?php  endif ;?>
+            </li>
+            <li>
+                <div class="logo">
+                    (<span class="quantity">0</span>)
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                </div>
             </li>
        </div>
     <section id="what-we-do">
@@ -76,8 +88,9 @@
                     <div class="card">
                         <img src="public/images/<?php echo $compu['hinh']?>.jpg" alt="" class="img-responsive"/>
                         <div>                          
-                            <h2>Láp top: : <?php echo $compu['ten'] ?></h2>
+                            <h2>Laptop: <?php echo $compu['ten'] ?></h2>
                             <h3>Giá : <?php echo $compu['gia'] ?></h3>
+                            <a href="#" class="mua">Mua</a>
                         </div>
                     </div>
                 </div>
