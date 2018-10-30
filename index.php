@@ -8,6 +8,9 @@
     }
 ?>
 <?php include './head.php'; ?>
+<header>
+    <meta charset="utf8">
+</header>
 <body>
     <div class="container">
         <ul class="menu">

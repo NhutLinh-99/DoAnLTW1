@@ -5,6 +5,7 @@ $data = new accounts();
 $accou = $data->selectuser();
 session_start();
 ?>
+ <?php include './head.php';?>
 <html>
     <head>
         <meta charset="utf-8">

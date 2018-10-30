@@ -82,14 +82,21 @@
                     <a href='phone.php?id=<?php echo $user['id'] ?>' style="text-decoration: none; ">Xoa</a>
                     <a href='capnhap.php?id=<?php echo $user['id'] ?>' style="text-decoration: none; ">Cap Nhap</a>
                     <?php endif; ?>
-                    <div class="card">
-                        <img src="public/images/<?php echo $user['hinh']?>.jpg" alt="" class="img-responsive"/>
-                        <div>                          
-                            <h2>Dien Thoai : <?php echo $user['ten'] ?></h2>
-                            <h3>Gia : <?php echo $user['gia'] ?></h3>
-                            <a href="#" class="mua">Mua</a>
+                    <a href="phone.php?name=<?php echo $user['ten']?>">
+                        <div class="card">
+                            <img src="public/images/<?php echo $user['hinh']?>.jpg" alt="" class="img-responsive"/>
+                                <div>                          
+                                    <h2>Dien Thoai : <?php echo $user['ten'] ?></h2>
+                                    <h3>Gia : <?php echo $user['gia'] ?></h3>
+                                    <a href="#" class="mua">Mua</a>
+                                </div>
+                            <?php 
+                            if(isset($_GET['name'])){
+                                return;
+                            }
+                            ?>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <?php endforeach; ?>
             </div>
