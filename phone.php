@@ -80,6 +80,8 @@
             <div class="row show-sp">
                 <?php foreach ($products as $pro):  ?>
                 <div class="col-md-4">
+                    <a href='phone.php?id=<?php echo $pro['id'] ?>' style="text-decoration: none; ">Xóa</a>
+                    <a href='capnhap-phone.php?id=<?php echo $pro['id'] ?>' style="text-decoration: none; ">Cập nhập</a>
                     <div class="card">
                         <img src="public/images/<?php echo $pro['hinh']?>.jpg" alt="" class="img-responsive"/>
                         <div>                          
