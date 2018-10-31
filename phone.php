@@ -4,7 +4,7 @@
     //cookies & session
     session_start();
     if(empty($_SESSION['ab'])){
-    $_SESSION['ab']='a';
+    $_SESSION['ab']='Tài khoản';
 }
     //delete
     $id = '';
@@ -43,13 +43,31 @@
                 <i class="fas fa-headphones"></i>
                 <a href="access.php">Phụ Kiện</a>
             </li>
-            <li>
+            <li class="dropdown">
                 <i class="fas fa-user"></i>
-                <?php if(!empty($_SESSION['x']) == 1): ?>
-                <a href="logout.php">LogOut</a>
-                <?php else :?>
-                <a href="login.php">LogIn</a>
-                <?php  endif ;?>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <?php                      
+                            echo $_SESSION['ab'];                  
+                    ?>
+                </a>
+                <ul class="dropdown-menu">                       
+                        <?php if(!empty($_SESSION['x']) == 1): ?>
+                            <li>
+                                <i class="fas fa-user"></i>
+                                <a href="logout.php">LogOut</a>
+                            </li>
+                            
+                        <?php else :?>
+                            <li>
+                                <i class="fas fa-user" ></i>
+                                <a href="login.php">LogIn</a>
+                            </li>
+                            <li>
+                                <i class="fas fa-user"></i>
+                                <a href="signin.php">SignIn</a>
+                            </li>
+                        <?php  endif ;?>
+                </ul>
             </li>
             <li>
                 <div class="logo">
@@ -82,9 +100,11 @@
             <div class="row show-sp">
                 <?php foreach ($products as $pro):  ?>
                 <div class="col-md-4">
+                    <?php if (($_SESSION['ab']) == 'admin') :?>
                     <a href='phone.php?id=<?php echo $pro['id'] ?>' style="text-decoration: none; ">Xóa</a>
                     <a href='capnhap-phone.php?id=<?php echo $pro['id'] ?>' style="text-decoration: none; ">Cập nhập</a>
-                    <div class="card">
+                    <?php endif;?>
+                    <div class="card">    
                         <img src="public/images/<?php echo $pro['hinh']?>.jpg" alt="" class="img-responsive"/>
                         <div>                          
                             <h2><?php echo $pro['ten'] ?></h2>

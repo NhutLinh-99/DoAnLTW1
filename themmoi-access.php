@@ -23,10 +23,6 @@
                 <td>Giá:</td>
                 <td><input class="gia" type="text" name="gia"><br></td>
             </tr>
-            <tr>
-                <td>Cấu Hình:</td>
-                <td><input class="gia" type="text" name="cauhinh"><br></td>
-            </tr>
         </table>
         <input type="submit" value="Thêm Mới" class="btn-sub">
     </form>
@@ -39,7 +35,6 @@
             'ten' => $_GET['ten'],
             'hinh' => $_GET['hinh'],
             'gia' => $_GET['gia'],
-            'cauhinh' => $_GET['cauhinh'],
         ];
         $obj_products = new products();
         $obj_products->insertAccess($data);
