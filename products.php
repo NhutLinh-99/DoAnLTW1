@@ -13,7 +13,16 @@ class products extends db{
         $phones = $this->select($sql);
         return $phones;
     }
-    
+    public function getPages($keyword=null){
+        if ($keyword){
+            $sql = 'SELECT * FROM phones LIMIT '.$keyword.',1';
+
+        } else {
+            $sql = 'SELECT * FROM phones';
+        }
+        $phones = $this->select($sql);
+        return $phones;
+    }
     public function getComputers($keyword=null){
         if($keyword){
             $sql = 'SELECT * FROM computers WHERE ten LIKE "%'.$keyword.'%"';

@@ -18,6 +18,8 @@
         $keyword = $_GET['keyword'];
     }
     $products = $obj_products->getPhones($keyword);
+    if(isset($_GET['p'])) 
+    $products = $obj_products->getPages($_GET['p']);
     //khai bao bien
     $pro = 1;
 ?>
@@ -99,6 +101,16 @@
                 </div>
                 <?php endforeach; ?>
             </div>
+                 <table>
+                    <tr>
+                        <td><a href="phone.php?p=0">1</a></td>
+                        <td><a href="phone.php?p=1">2</a></td>
+                        <td><a href="phone.php?p=2">3</a></td>
+                        <td><a href="phone.php?p=3">4</a></td>
+                        <td><a href="phone.php?p=4">5</a></td>
+                    </tr>
+                </table>
+        </div>
     </section>
 </body>
 <?php include './footer.php'; ?>
